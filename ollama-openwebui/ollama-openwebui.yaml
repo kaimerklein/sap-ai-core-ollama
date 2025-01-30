@@ -22,13 +22,11 @@ spec:
         ai.sap.com/resourcePlan: infer.s
     spec: |
       predictor:
-        imagePullSecrets:
-        - name: kai-m
         minReplicas: 1
         maxReplicas: 1
         containers:
         - name: kserve-container
-          image: docker.io/open-webui/open-webui:ollama
+          image: ghcr.io/open-webui/open-webui:ollama
           ports:
             - containerPort: 8080
               protocol: TCP
