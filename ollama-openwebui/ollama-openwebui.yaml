@@ -30,3 +30,6 @@ spec:
           ports:
             - containerPort: 8080
               protocol: TCP
+          env:
+            - name: WEBUI_SECRET_KEY
+              value: "abc-def"
