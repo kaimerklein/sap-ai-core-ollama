@@ -22,6 +22,8 @@ spec:
         ai.sap.com/resourcePlan: infer.s
     spec: |
       predictor:
+        imagePullSecrets:
+        - name: kai-m-read-public
         minReplicas: 1
         maxReplicas: 1
         containers:
