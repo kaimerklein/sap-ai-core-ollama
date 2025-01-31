@@ -9,7 +9,7 @@ metadata:
     executables.ai.sap.com/name: "ollama-openwebui"
   labels:
     scenarios.ai.sap.com/id: "ollama-openwebui"
-    ai.sap.com/version: "0.0.3"
+    ai.sap.com/version: "0.0.4"
 spec:
   template:
     apiVersion: "serving.kserve.io/v1beta1"
@@ -22,14 +22,13 @@ spec:
         ai.sap.com/resourcePlan: infer.s
     spec: |
       predictor:
+        imagePullSecrets:
+        - name: kai-m-read-public
         minReplicas: 1
         maxReplicas: 1
         containers:
         - name: kserve-container
-          image: ghcr.io/open-webui/open-webui:ollama
+          image: docker.io/kaimerklein/openwebui:ollama
           ports:
             - containerPort: 8080
               protocol: TCP
-          env:
-            - name: WEBUI_SECRET_KEY
-              value: "abc-def"
